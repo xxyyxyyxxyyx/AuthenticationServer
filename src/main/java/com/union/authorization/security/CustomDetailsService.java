@@ -16,16 +16,12 @@ import java.util.Collection;
 
 @Service
 public class CustomDetailsService implements UserDetailsService {
+    @Autowired
     private UserService userService;
 
-    private HttpServletRequest request;
-
     @Autowired
-    public CustomDetailsService(UserService userService, HttpServletRequest request) {
-        this.userService = userService;
-        this.request = request;
-    }
-
+    private HttpServletRequest request;
+    
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String department = request.getParameter("department");

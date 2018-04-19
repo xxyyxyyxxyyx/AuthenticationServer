@@ -15,6 +15,7 @@ public class UserServiceBean implements UserService {
     private PasswordEncoder passwordEncoder;
     private UserRepository userRepository;
 
+    @Autowired
     public UserServiceBean(UserRepository userRepository) {
         this.userRepository = userRepository;
     }

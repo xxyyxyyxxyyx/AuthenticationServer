@@ -29,11 +29,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     static final int REFRESH_TOKEN_VALIDITY_SECONDS = 6 * 60 * 60;
     private String publicKey;
     private String privateKey;
-    private ResourceLoader resourceLoader;
 
     @Autowired
-    public AuthorizationServerConfig(ResourceLoader resourceLoader) {
-        this.resourceLoader = resourceLoader;
+    ResourceLoader resourceLoader;
+
+    public AuthorizationServerConfig() {
         try {
             File publicKeyFile = resourceLoader.getResource("classpath:keys\\publicKey.txt").getFile();
             File privateKeyFile = resourceLoader.getResource("classpath:keys\\privateKey.txt").getFile();

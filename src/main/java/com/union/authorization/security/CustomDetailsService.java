@@ -21,7 +21,7 @@ public class CustomDetailsService implements UserDetailsService {
 
     @Autowired
     private HttpServletRequest request;
-    
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String department = request.getParameter("department");
@@ -32,7 +32,7 @@ public class CustomDetailsService implements UserDetailsService {
                 new SimpleGrantedAuthority(user.getRole())
         );
         // Creating the spring security user
-        org.springframework.security.core.userdetails.User springSecurityUser = new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), grantedAuthorities);
+        CustomUser springSecurityUser = new CustomUser(user.getUsername(), user.getPassword(), grantedAuthorities, user.getStaffCode(), user.getDepartment());
         return springSecurityUser;
     }
 }

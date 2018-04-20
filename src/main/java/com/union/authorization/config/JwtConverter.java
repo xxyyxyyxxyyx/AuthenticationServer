@@ -11,4 +11,6 @@ public class JwtConverter extends DefaultAccessTokenConverter implements JwtAcce
     public void configure(JwtAccessTokenConverter jwtAccessTokenConverter) {
         jwtAccessTokenConverter.setAccessTokenConverter(this);
     }
+
+
 }

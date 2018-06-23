@@ -53,7 +53,7 @@ public class UserController {
         return new ResponseEntity<User>(userService.findOne(staffCode), HttpStatus.OK);
     }
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<Map> createUser(@RequestBody User newUser) {
         User user = userService.create(newUser);
@@ -80,6 +80,6 @@ public class UserController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<User> deleteUser(@PathVariable("staffCode") Long staffCode) {
         userService.delete(staffCode);
-        return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+        return new ResponseEntity<User>(HttpStatus.OK);
     }
 }

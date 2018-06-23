@@ -26,6 +26,7 @@ public class CustomDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         String department = request.getParameter("department");
         User user = userService.findByUsernameAndDepartment(username, department);
+        if (user == null) throw new UsernameNotFoundException("User not found");
         // Creating an empty Authorities list
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(

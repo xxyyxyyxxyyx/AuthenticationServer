@@ -13,12 +13,8 @@ public class UserServiceBean implements UserService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
-    private UserRepository userRepository;
-
     @Autowired
-    public UserServiceBean(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserRepository userRepository;
 
 
     @Override
